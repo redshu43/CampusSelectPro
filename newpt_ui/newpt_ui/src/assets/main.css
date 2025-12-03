@@ -1,0 +1,38 @@
+/* 样式重置：让页面占满全屏，没有任何默认边距 */
+.header {
+  background-color: #fff;
+  box-shadow: 0 1px 4px rgba(0,21,41,.08);
+  display: flex;
+  justify-content: space-between; /* 左右撑开 */
+  align-items: center;
+  padding: 0 20px;
+}
+/* 1. 所有元素去除默认边距，开启标准盒模型 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* 2. 让根元素、body 和 Vue 的挂载点 #app 占满屏幕 */
+html, body, #app {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden; /* 防止出现不必要的滚动条 */
+}
+
+/* 3. 设置全局字体 (可选，让字体更好看) */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #ffffff; /* 确保背景是纯白 */
+}
+
+/* 4. 链接样式 (可选) */
+a {
+  text-decoration: none;
+  color: inherit;
+}

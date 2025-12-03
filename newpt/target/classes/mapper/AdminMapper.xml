@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cy.newpt.mapper.AdminMapper">
+<!--    通过账号查询管理员信息-->
+    <select id="findByAccount" parameterType="com.cy.newpt.pojo.entity.Admin">
+        select *
+        from admin
+        where account = #{account}
+    </select>
+<!--    更新管理员信息-->
+    <update id="updateByAccount" parameterType="com.cy.newpt.pojo.entity.Admin">
+        update admin
+        <set>
+            <if test="password != null"> password = #{password}</if>
+        </set>
+        where account = #{account}
+    </update>
+
+<!--    插入学生信息-->
+    <insert id="insertStu" parameterType="com.cy.newpt.pojo.entity.Stu" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO stu (
+        name, gender, age, year, class_idt, major_id, depa_id,
+        account, password, role
+        ) VALUES (
+        #{name}, #{gender}, #{age}, #{year}, #{classIdt}, #{majorId}, #{depaId},
+        #{account}, #{password}, #{role}
+        )
+    </insert>
+
+    <!-- 插入教师信息 -->
+    <insert id="insertTea" parameterType="com.cy.newpt.pojo.entity.Tea" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO tea (
+        name, gender, age, edu, title, hire_date,
+        account, password, role
+        ) VALUES (
+        #{name}, #{gender}, #{age}, #{edu}, #{title}, #{hireDate},
+        #{account}, #{password}, #{role}
+        )
+    </insert>
+
+    <!-- 插入课程信息 -->
+    <insert id="insertCourse" parameterType="com.cy.newpt.pojo.entity.Course" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO course (
+        name, time, hours, credits, tea_id
+        ) VALUES (
+        #{name}, #{time}, #{hours}, #{credits}, #{teaId}
+        )
+    </insert>
+
+    <!-- 插入系信息 -->
+    <insert id="insertDepartment" parameterType="com.cy.newpt.pojo.entity.Department">
+        INSERT INTO department (
+        id, name
+        ) VALUES (
+        #{id}, #{name}
+        )
+    </insert>
+
+    <!-- 插入专业信息 -->
+    <insert id="insertMajor" parameterType="com.cy.newpt.pojo.entity.Major">
+        INSERT INTO major (
+        id, name
+        ) VALUES (
+        #{id}, #{name}
+        )
+    </insert>
+
+    <!-- 插入班级信息 -->
+    <insert id="insertClass" parameterType="com.cy.newpt.pojo.entity.ClassInfo" useGeneratedKeys="true" keyProperty="idt">
+        INSERT INTO class (
+        id, name
+        ) VALUES (
+        #{id}, #{name}
+        )
+    </insert>
+</mapper>

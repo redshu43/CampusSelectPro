@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cy.newpt.mapper.StudentCourseMapper">
+    <insert id="insert" parameterType="com.cy.newpt.pojo.entity.StudentCourse">
+        INSERT INTO student_course
+        (student_id, course_id, create_time)
+        VALUES
+        (#{studentId}, #{courseId}, #{createTime})
+    </insert>
+
+    <select id="countByStudentIdAndCourseId" resultType="int">
+        SELECT count(*)
+        FROM student_course
+        WHERE student_id = #{studentId} AND course_id = #{courseId}
+    </select>
+
+
+    <delete id="deleteByStudentIdAndCourseId">
+        delete
+        from student_course
+        where student_id = #{studentId} and course_id = #{courseId}
+    </delete>
+
+    <select id="selectMyCourses" resultType="com.cy.newpt.pojo.entity.Course">
+        SELECT
+        c.id, c.name, c.score, c.week_day as weekDay, c.section_time as sectionTime,
+        c.start_time as startTime, c.end_time as endTime
+        FROM student_course sc
+        LEFT JOIN course c ON sc.course_id = c.id
+        WHERE sc.student_id = #{studentId}
+        ORDER BY sc.create_time DESC
+    </select>
+
+    <select id="findStudentAccountsByCourseId" resultType="string">
+        select s.account
+        from student_course sc
+        left join stu s on sc.student_id = s.id
+        where sc.course_id = #{courseId}
+    </select>
+
+</mapper>

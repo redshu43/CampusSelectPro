@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cy.newpt.mapper.CourseMapper">
+    <insert id="insert" parameterType="com.cy.newpt.pojo.entity.Course" useGeneratedKeys="true" keyProperty="id">
+        insert into course
+        (name, score, capacity, selected_num, version, start_time, end_time, week_day, section_time)
+        values
+        (#{name}, #{score}, #{capacity}, 0, 1, #{startTime}, #{endTime}, #{weekDay}, #{sectionTime})
+    </insert>
+
+    <select id="findByName" resultType="com.cy.newpt.pojo.entity.Course">
+        select *
+        from course
+        where name = #{name}
+    </select>
+
+    <select id="findAll" resultType="com.cy.newpt.pojo.entity.Course">
+        select *
+        from course
+        order by id desc
+    </select>
+
+    <delete id="deleteById">
+        delete
+        from course
+        where id = #{id}
+    </delete>
+
+    <update id="update" parameterType="com.cy.newpt.pojo.entity.Course">
+        update course
+        <set>
+            <if test="name != null">name = #{name},</if>
+            <if test="score != null">score = #{score},</if>
+            <if test="capacity != null">capacity = #{capacity},</if>
+            <if test="startTime != null">start_time = #{startTime},</if>
+            <if test="endTime != null">end_time = #{endTime},</if>
+            <if test="weekDay != null">week_day = #{weekDay},</if>
+            <if test="sectionTime != null">section_time = #{sectionTime}</if>
+        </set>
+        where id = #{id}
+    </update>
+
+    <update id="decreaseSelectedNum">
+        update course
+        set selected_num = selected_num - 1
+        where id = #{id} and selected_num > 0
+    </update>
+
+    <update id="increaseSelectedNum">
+        update course
+        set selected_num = selected_num + 1
+        where id = #{id}
+        and selected_num &lt; capacity
+    </update>
+
+
+</mapper>

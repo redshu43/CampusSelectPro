@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cy.newpt.mapper.StuMapper">
+    <select id="ifStuExist">
+        select count(*)
+        from stu
+        where name = #{name}
+    </select>
+
+    <select id="findAll" resultType="com.cy.newpt.pojo.entity.Stu">
+        select *
+        from stu
+    </select>
+
+    <delete id="deleteByAccount">
+        delete
+        from stu
+        where account=#{account}
+    </delete>
+    
+    <update id="updateByAccount" parameterType="com.cy.newpt.pojo.entity.Stu">
+        update stu
+        <set>
+            <if test="name != null">name = #{name},</if>
+            <if test="gender != null">gender = #{gender},</if>
+            <if test="age != null">age = #{age},</if>
+            <if test="year != null">year = #{year},</if>
+            <if test="classIdt != null">class_idt = #{classIdt},</if>
+            <if test="majorId != null">major_id = #{majorId},</if>
+            <if test="depaId != null">depa_id = #{depaId},</if>
+            <if test="password != null">password = #{password}</if>
+        </set>
+        where account = #{account}
+    </update>
+
+    <select id="findByAccount" parameterType="com.cy.newpt.pojo.entity.Stu">
+        select *
+        from stu
+        where account = #{account}
+    </select>
+</mapper>
