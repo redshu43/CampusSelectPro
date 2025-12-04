@@ -57,3 +57,5 @@ cd newpt_ui
 npm install
 npm run dev
 ```
+
+## 若有做的不妥的地方，还请不吝指正
