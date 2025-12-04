@@ -30,23 +30,30 @@
 
 ## 📸 项目演示 (Screenshots)
 
-![测试准备文件](./测试截图/p1)
-![JWeter测试](./测试截图/p2)
-![管理员视角](./测试截图/p3)
-![压力Tree](./测试截图/p4)
+![测试准备文件](./测试截图/p1.png)
+![JWeter测试](./测试截图/p2.png)
+![管理员视角](./测试截图/p3.png)
+![压力Tree](./测试截图/p4.png)
 
-## 🚀 快速开始 (Quick Start)
+## 依赖安装
 
-### 1. 环境准备
 * JDK 17+
 * Node.js 16+
 * MySQL 8.0
-* Redis & RabbitMQ (推荐 Docker 安装)
+* Redis & RabbitMQ (推荐 Docker 部署)
 
 ### 2. 启动后端
 ```bash
 git clone [https://github.com/yourname/course-system.git](https://github.com/yourname/course-system.git)
-cd backend
+cd newpt
 mvn clean install
 # 记得修改 application.properties 里的数据库密码
 java -jar target/app.jar
+```
+
+启动前端
+```bash
+cd newpt_ui
+npm install
+npm run dev
+```
