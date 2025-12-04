@@ -47,7 +47,7 @@
 git clone [https://github.com/yourname/course-system.git](https://github.com/yourname/course-system.git)
 cd newpt
 mvn clean install
-# 记得修改 application.properties 里的数据库密码
+# 记得修改 application.yml 里的数据库密码
 java -jar target/app.jar
 ```
 
