@@ -1,0 +1,36 @@
+spring:
+  application:
+    name: newpt
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://mysql:3306/newpt_db?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai
+    username: newpt_user
+    password: 123123
+  data:
+    redis:
+      host: redis
+      port: 6379
+      database: 0
+  rabbitmq:
+    host: rabbitmq
+    port: 5672
+    username: guest
+    password: guest
+    listener:
+      simple:
+        acknowledge-mode: manual # 开启手动确认模式 为了保证消息不丢失，这步是高并发的关键
+
+
+mybatis:
+  type-aliases-package: package com.cy.newpt.pojo.entity
+  mapper-locations: classpath:mapper/*.xml
+  configuration:
+    map-underscore-to-camel-case: true
+pagehelper:
+  # 设置使用数据库类型
+  helper-dialect: mysql
+  # 确保能获得总条数
+  reasonable: true
+jwt:
+  secret-key: ahfbDAbzouHOBhbkhbHBIYsddsaiIBBBOBjjknugiyVJVJGVUVutvjvFTYC
+  expiration-ms: 86400000

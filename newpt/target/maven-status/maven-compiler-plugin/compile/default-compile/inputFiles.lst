@@ -1,3 +1,4 @@
+D:\Project\newpt\src\main\java\com\cy\newpt\config\RabbitConfig.java
 D:\Project\newpt\src\main\java\com\cy\newpt\config\SecurityConfig.java
 D:\Project\newpt\src\main\java\com\cy\newpt\controller\AdminController.java
 D:\Project\newpt\src\main\java\com\cy\newpt\controller\LoginController.java
@@ -5,6 +6,7 @@ D:\Project\newpt\src\main\java\com\cy\newpt\controller\StudentController.java
 D:\Project\newpt\src\main\java\com\cy\newpt\controller\StudentCourseController.java
 D:\Project\newpt\src\main\java\com\cy\newpt\controller\testcontroller.java
 D:\Project\newpt\src\main\java\com\cy\newpt\filter\JwtRequestFilter.java
+D:\Project\newpt\src\main\java\com\cy\newpt\listener\CourseSelectionListener.java
 D:\Project\newpt\src\main\java\com\cy\newpt\mapper\AdminMapper.java
 D:\Project\newpt\src\main\java\com\cy\newpt\mapper\CourseMapper.java
 D:\Project\newpt\src\main\java\com\cy\newpt\mapper\StudentCourseMapper.java
@@ -12,6 +14,7 @@ D:\Project\newpt\src\main\java\com\cy\newpt\mapper\StuMapper.java
 D:\Project\newpt\src\main\java\com\cy\newpt\mapper\TeaMapper.java
 D:\Project\newpt\src\main\java\com\cy\newpt\NewptApplication.java
 D:\Project\newpt\src\main\java\com\cy\newpt\pojo\dto\ChangePasswordDTO.java
+D:\Project\newpt\src\main\java\com\cy\newpt\pojo\dto\CourseSelectionMessage.java
 D:\Project\newpt\src\main\java\com\cy\newpt\pojo\dto\CreateCourseDTO.java
 D:\Project\newpt\src\main\java\com\cy\newpt\pojo\dto\LoginDTO.java
 D:\Project\newpt\src\main\java\com\cy\newpt\pojo\dto\SelectCourseDTO.java

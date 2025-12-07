@@ -1,12 +1,14 @@
 com\cy\newpt\controller\StudentCourseController.class
 com\cy\newpt\mapper\StudentCourseMapper.class
 com\cy\newpt\pojo\dto\CreateCourseDTO.class
+com\cy\newpt\config\RabbitConfig.class
 com\cy\newpt\NewptApplication.class
 com\cy\newpt\pojo\vo\StuVO.class
 com\cy\newpt\service\impl\TeaServiceImpl.class
 com\cy\newpt\mapper\StuMapper.class
 com\cy\newpt\utils\JwtUtil.class
 com\cy\newpt\pojo\dto\SelectCourseDTO.class
+com\cy\newpt\controller\testcontroller.class
 com\cy\newpt\service\ICourseService.class
 com\cy\newpt\service\impl\StuServiceImpl.class
 com\cy\newpt\mapper\CourseMapper.class
@@ -18,6 +20,7 @@ com\cy\newpt\utils\JsonResult.class
 com\cy\newpt\service\impl\StudentCourseServiceImpl.class
 com\cy\newpt\pojo\entity\Course.class
 com\cy\newpt\controller\AdminController.class
+com\cy\newpt\pojo\dto\CourseSelectionMessage.class
 com\cy\newpt\pojo\vo\PageVO.class
 com\cy\newpt\service\impl\AdminServiceImpl.class
 com\cy\newpt\pojo\dto\LoginDTO.class
@@ -32,12 +35,14 @@ com\cy\newpt\pojo\entity\Stu.class
 com\cy\newpt\pojo\vo\TeaVO.class
 com\cy\newpt\service\IStudentCourseService.class
 com\cy\newpt\controller\LoginController.class
+com\cy\newpt\utils\RedisUtil.class
 com\cy\newpt\pojo\entity\ClassInfo.class
 com\cy\newpt\service\StuService.class
 com\cy\newpt\config\SecurityConfig.class
 com\cy\newpt\pojo\dto\UpdateStuDTO.class
 com\cy\newpt\pojo\entity\Role.class
 com\cy\newpt\filter\JwtRequestFilter.class
+com\cy\newpt\listener\CourseSelectionListener.class
 com\cy\newpt\pojo\dto\TeaDTO.class
 com\cy\newpt\service\IAuthService.class
 com\cy\newpt\pojo\entity\StudentCourse.class

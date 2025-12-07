@@ -1,0 +1,64 @@
+version: '3.8'
+
+services:
+  # --- 1. MySQL ---
+  mysql:
+    image: mysql:8.0
+    container_name: newpt_mysql
+    environment:
+      MYSQL_USER: newpt_user
+      MYSQL_ROOT_PASSWORD: 123123  # 你的数据库密码
+      MYSQL_DATABASE: newpt_db   # 自动创建的数据库名
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./sql/init.sql:/docker-entrypoint-initdb.d/init.sql # 自动初始化SQL
+      - mysql_data:/var/lib/mysql # 数据持久化
+    command: --default-authentication-plugin=mysql_native_password
+
+  # --- 2. Redis ---
+  redis:
+    image: redis:alpine
+    container_name: newpt_redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+
+  # --- 3. RabbitMQ ---
+  rabbitmq:
+    image: rabbitmq:management
+    container_name: newpt_rabbitmq
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    environment:
+      RABBITMQ_DEFAULT_USER: guest
+      RABBITMQ_DEFAULT_PASS: guest
+
+  # --- 4. 后端 (Backend) ---
+  backend:
+    build: ./newpt # 这里指向你后端代码的路径
+    container_name: newpt_backend
+    ports:
+      - "8080:8080"
+    depends_on: # 等这些启动了再启动后端
+      - mysql
+      - redis
+      - rabbitmq
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+
+  # --- 5. 前端 (Frontend) ---
+  frontend:
+    build: ./newpt_ui/newpt_ui # 这里指向你前端代码的路径
+    container_name: newpt_frontend
+    ports:
+      - "80:80" # 浏览器访问 localhost:80 就能看到页面
+    depends_on:
+      - backend
+
+# 定义数据卷 (防止删除容器后数据丢失)
+volumes:
+  mysql_data:
+  redis_data:
