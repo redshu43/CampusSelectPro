@@ -112,18 +112,18 @@ ALTER TABLE course
 
 alter table stu
 add column account varchar(10) comment '账户（学号）',
-add column password varchar(10) not null comment '密码';
+add column password varchar(100) not null comment '密码';
 
 
 alter table tea
 modify column hire_date year not null comment '入职时间',
 add column account varchar(10) comment '账户（工号）',
-add column password varchar(10) not null comment '密码';
+add column password varchar(100) not null comment '密码';
 
 create table admin (
 id int primary key comment '管理员id',
 account varchar(10) comment '账户',
-password varchar(10) comment '密码'
+password varchar(100) comment '密码'
 ) comment '管理员';
 
 ALTER TABLE admin MODIFY COLUMN id INT;
@@ -145,6 +145,8 @@ ADD COLUMN role VARCHAR(20) NOT NULL DEFAULT 'ROLE_ADMIN';
 alter table stu
     add constraint stu_pk
         unique (account);
+
+INSERT INTO `admin` VALUES (1,'Ee11','$2a$10$JsZMinPU1mz8BkQfawYuI.60MZnKAG8loTZBXLGnbabeASwsW/bXC','ROLE_ADMIN');
 ```
 
 ---

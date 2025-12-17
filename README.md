@@ -43,6 +43,31 @@
 * MySQL 8.0
 * Redis & RabbitMQ (推荐 Docker 部署)
 
+## mysql 配置
+创建数据库newpt_db和用户newpt_user，赋予用户使用此数据库的所有权限
+```bash
+mysql> create user 'newpt_user'@'%' identified with mysql_native_password by '123123'
+    -> ;
+Query OK, 0 rows affected (0.03 sec)
+# %表示所有ip的远程主机都可访问
+
+mysql> create database newpt_db;
+Query OK, 1 row affected (0.04 sec)
+mysql> alter database newpt_db character set = utf8mb4 collate = utf8mb4_unicode_ci;
+Query OK, 1 row affected (0.04 sec)
+# 设置utf8mb4编码
+
+mysql> grant all privileges on newpt_db.* to 'newpt_user'@'%';
+Query OK, 0 rows affected (0.02 sec)
+# 赋予所有权限
+
+mysql> flush privileges;
+Query OK, 0 rows affected (0.02 sec)
+# 刷新权限，必须执行
+```
+执行.sql文件
+如果.sql乱码，可以执行newpt\README.md里面的sql语句，管理员(账号：Ee11)初始密码为000000
+
 ### 2. 启动后端
 ```bash
 git clone [https://github.com/yourname/course-system.git](https://github.com/yourname/course-system.git)
@@ -58,5 +83,7 @@ cd newpt_ui
 npm install
 npm run dev
 ```
+
+
 
 ## 若有做的不妥的地方，还请不吝指正
