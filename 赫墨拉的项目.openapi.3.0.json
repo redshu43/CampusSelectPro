@@ -1,0 +1,542 @@
+{
+	"info": {
+		"title": "赫墨拉的项目",
+		"description": "",
+		"version": "1.0.0",
+		"x-project-id": "54f9f1d60851000"
+	},
+	"openapi": "3.0.0",
+	"tags": [
+		{
+			"name": "高并发教务系统开发",
+			"description": "**高并发教务系统开发**",
+			"x-type": "folder",
+			"x-url": "",
+			"x-target-id": "105944a9f64070"
+		}
+	],
+	"paths": {
+		"http://localhost:8080/login/admin/student": {
+			"post": {
+				"x-target-id": "f9f9c44f32002",
+				"x-protocol": "http",
+				"summary": "创建学生/教师类",
+				"description": "",
+				"tags": [
+					"高并发教务系统开发"
+				],
+				"x-mark-id": "2",
+				"x-updated-at": "2025-11-18T11:42:09+08:00",
+				"x-updated-user-name": "赫墨拉",
+				"requestBody": {
+					"content": {
+						"application/json": {
+							"schema": {
+								"type": "object"
+							},
+							"example": "{\r\n  \"name\": \"李辞盈2\",\r\n  \"gender\": 1,\r\n  \"age\": 20,\r\n  \"year\": 2007,\r\n  \"account\": \"Ee12007\",\r\n  \"password\": \"000000\",\r\n  \"classIdt\": 1,\r\n  \"majorId\": \"E\",\r\n  \"depaId\": \"e\"\r\n}"
+						}
+					}
+				},
+				"responses": {
+					"200": {
+						"description": "成功",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"properties": {}
+								},
+								"example": ""
+							}
+						}
+					},
+					"404": {
+						"description": "失败",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"properties": {}
+								},
+								"example": ""
+							}
+						}
+					}
+				}
+			}
+		},
+		"http://localhost:8080/login/admin/students": {
+			"get": {
+				"x-target-id": "11fcd0dcf32003",
+				"x-protocol": "http",
+				"summary": "分页返回（学生/教师）",
+				"description": "",
+				"tags": [
+					"高并发教务系统开发"
+				],
+				"x-mark-id": "2",
+				"x-updated-at": "2025-11-18T11:41:53+08:00",
+				"x-updated-user-name": "赫墨拉",
+				"parameters": [
+					{
+						"name": "page",
+						"in": "query",
+						"description": "",
+						"required": true,
+						"example": "1",
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"name": "size",
+						"in": "query",
+						"description": "",
+						"required": true,
+						"example": "5",
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"name": "Authorization",
+						"in": "header",
+						"description": "",
+						"required": true,
+						"example": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiUk9MRV9BRE1JTiIsInN1YiI6IkVlMTEiLCJpYXQiOjE3NjM0MzcxOTQsImV4cCI6MTc2MzQzNzU1NH0.KV7TL1L3ItQeXEqpky-zp7rgzPVMX0j96rTWYYDTwns",
+						"schema": {
+							"type": "string"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "成功",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"properties": {}
+								},
+								"example": ""
+							}
+						}
+					},
+					"404": {
+						"description": "失败",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"properties": {}
+								},
+								"example": ""
+							}
+						}
+					}
+				}
+			}
+		},
+		"http://localhost:8080/login/admin/students/by-account/E2": {
+			"delete": {
+				"x-target-id": "12d66baa332003",
+				"x-protocol": "http",
+				"summary": "删除学生类",
+				"description": "",
+				"tags": [
+					"高并发教务系统开发"
+				],
+				"x-mark-id": "2",
+				"x-updated-at": "2025-11-13T10:57:04+08:00",
+				"x-updated-user-name": "赫墨拉",
+				"responses": {
+					"200": {
+						"description": "成功",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"properties": {}
+								},
+								"example": ""
+							}
+						}
+					},
+					"404": {
+						"description": "失败",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"properties": {}
+								},
+								"example": ""
+							}
+						}
+					}
+				}
+			}
+		},
+		"http://localhost:8080/login/admin/students/by-account/Ee12005": {
+			"put": {
+				"x-target-id": "12ed30783320be",
+				"x-protocol": "http",
+				"summary": "更新学生信息",
+				"description": "",
+				"tags": [
+					"高并发教务系统开发"
+				],
+				"x-mark-id": "2",
+				"x-updated-at": "2025-11-13T10:56:57+08:00",
+				"x-updated-user-name": "赫墨拉",
+				"requestBody": {
+					"content": {
+						"application/json": {
+							"schema": {
+								"type": "object"
+							},
+							"example": "{\r\n  \"name\": \"李辞盈\",\r\n  \"gender\": 0,\r\n  \"age\": 15,\r\n  \"year\": 2005,\r\n  \"password\": \"000000\",\r\n  \"classIdt\": 1,\r\n  \"majorId\": \"E\",\r\n  \"depaId\": \"e\"\r\n}"
+						}
+					}
+				},
+				"responses": {
+					"200": {
+						"description": "成功",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"properties": {}
+								},
+								"example": ""
+							}
+						}
+					},
+					"404": {
+						"description": "失败",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"properties": {}
+								},
+								"example": ""
+							}
+						}
+					}
+				}
+			}
+		},
+		"http://localhost:8080/api/auth/login": {
+			"post": {
+				"x-target-id": "18b3bd6233200b",
+				"x-protocol": "http",
+				"summary": "登录学生类/管理员/教师类",
+				"description": "",
+				"tags": [
+					"高并发教务系统开发"
+				],
+				"x-mark-id": "2",
+				"x-updated-at": "2025-11-29T15:21:28+08:00",
+				"x-updated-user-name": "赫墨拉",
+				"requestBody": {
+					"content": {
+						"application/json": {
+							"schema": {
+								"type": "object"
+							},
+							"example": "{\r\n    \"account\": \"Ee11\",\r\n    \"password\": \"000000\"\r\n}"
+						}
+					}
+				},
+				"responses": {
+					"200": {
+						"description": "成功",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"properties": {}
+								},
+								"example": ""
+							}
+						}
+					},
+					"404": {
+						"description": "失败",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"properties": {}
+								},
+								"example": ""
+							}
+						}
+					}
+				}
+			}
+		},
+		"http://localhost:8080/api/student/me": {
+			"get": {
+				"x-target-id": "1d749e61b64004",
+				"x-protocol": "http",
+				"summary": "学生登录（api拦截）",
+				"description": "",
+				"tags": [
+					"高并发教务系统开发"
+				],
+				"x-mark-id": "2",
+				"x-updated-at": "2025-11-21T21:33:35+08:00",
+				"x-updated-user-name": "赫墨拉",
+				"parameters": [
+					{
+						"name": "account",
+						"in": "query",
+						"description": "",
+						"required": true,
+						"example": "Ee12006",
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"name": "password",
+						"in": "query",
+						"description": "",
+						"required": true,
+						"example": "000000",
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"name": "Authorization",
+						"in": "header",
+						"description": "",
+						"required": true,
+						"example": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiUk9MRV9TVFVERU5UIiwic3ViIjoiRWUxMjAwNiIsImlhdCI6MTc2MzcwODQwOSwiZXhwIjoxNzYzNzA4NzY5fQ.jzwrFOPHwhTfjZcNSRhZLjaWxoh7ee5C16E5_hjl9uM",
+						"schema": {
+							"type": "string"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "成功",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"properties": {}
+								},
+								"example": ""
+							}
+						}
+					},
+					"404": {
+						"description": "失败",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"properties": {}
+								},
+								"example": ""
+							}
+						}
+					}
+				}
+			}
+		},
+		"http://localhost:8080/api/auth/changePassword": {
+			"post": {
+				"x-target-id": "215cae50364038",
+				"x-protocol": "http",
+				"summary": "修改密码（token）",
+				"description": "",
+				"tags": [
+					"高并发教务系统开发"
+				],
+				"x-mark-id": "2",
+				"x-updated-at": "2025-11-24T15:59:20+08:00",
+				"x-updated-user-name": "赫墨拉",
+				"parameters": [
+					{
+						"name": "Authorization",
+						"in": "header",
+						"description": "",
+						"required": true,
+						"example": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiUk9MRV9TVFVERU5UIiwic3ViIjoiRWUxMjAwNiIsImlhdCI6MTc2Mzk3MDMzNSwiZXhwIjoxNzY0MDU2NzM1fQ.zXCeLFdmuZm_ApRLWhuqOYynST6-gvHRZUTBHk4L2BM",
+						"schema": {
+							"type": "string"
+						}
+					}
+				],
+				"requestBody": {
+					"content": {
+						"application/json": {
+							"schema": {
+								"type": "object"
+							},
+							"example": "{\r\n    \"oldPassword\": \"111111\",\r\n    \"newPassword\": \"000000\",\r\n    \"confirmPassword\": \"000000\"\r\n}"
+						}
+					}
+				},
+				"responses": {
+					"200": {
+						"description": "成功",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"properties": {}
+								},
+								"example": ""
+							}
+						}
+					},
+					"404": {
+						"description": "失败",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"properties": {}
+								},
+								"example": ""
+							}
+						}
+					}
+				}
+			}
+		},
+		"http://localhost:8080/api/login/admin/courses": {
+			"post": {
+				"x-target-id": "2298acc8b64003",
+				"x-protocol": "http",
+				"summary": "课程创建",
+				"description": "",
+				"tags": [
+					"高并发教务系统开发"
+				],
+				"x-mark-id": "2",
+				"x-updated-at": "2025-11-25T14:57:23+08:00",
+				"x-updated-user-name": "赫墨拉",
+				"parameters": [
+					{
+						"name": "Authorization",
+						"in": "header",
+						"description": "",
+						"required": true,
+						"example": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiUk9MRV9BRE1JTiIsIm5hbWUiOiIiLCJzdWIiOiJFZTExIiwiaWF0IjoxNzY0MDUzMjgyLCJleHAiOjE3NjQxMzk2ODJ9.9rucLs83cKR1YtCynCQsXb30nzFObB9L2T2zwJ_xz64",
+						"schema": {
+							"type": "string"
+						}
+					}
+				],
+				"requestBody": {
+					"content": {
+						"application/json": {
+							"schema": {
+								"type": "object"
+							},
+							"example": "{\r\n    \"name\": \"高并发架构设计\",\r\n    \"score\": 4,\r\n    \"capacity\": 100,\r\n    \"startTime\": \"2025-12-01 08:00:00\",\r\n    \"endTime\": \"2025-12-05 18:00:00\"\r\n}"
+						}
+					}
+				},
+				"responses": {
+					"200": {
+						"description": "成功",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"properties": {}
+								},
+								"example": ""
+							}
+						}
+					},
+					"404": {
+						"description": "失败",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"properties": {}
+								},
+								"example": ""
+							}
+						}
+					}
+				}
+			},
+			"get": {
+				"x-target-id": "229f44e57640cd",
+				"x-protocol": "http",
+				"summary": "获取课程列表",
+				"description": "",
+				"tags": [
+					"高并发教务系统开发"
+				],
+				"x-mark-id": "2",
+				"x-updated-at": "2025-11-25T15:19:48+08:00",
+				"x-updated-user-name": "赫墨拉",
+				"parameters": [
+					{
+						"name": "Authorization",
+						"in": "header",
+						"description": "",
+						"required": true,
+						"example": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJyb2xlIjoiUk9MRV9BRE1JTiIsIm5hbWUiOiIiLCJzdWIiOiJFZTExIiwiaWF0IjoxNzY0MDUzMjgyLCJleHAiOjE3NjQxMzk2ODJ9.9rucLs83cKR1YtCynCQsXb30nzFObB9L2T2zwJ_xz64",
+						"schema": {
+							"type": "string"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "成功",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"properties": {}
+								},
+								"example": ""
+							}
+						}
+					},
+					"404": {
+						"description": "失败",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"properties": {}
+								},
+								"example": ""
+							}
+						}
+					}
+				}
+			}
+		}
+	},
+	"servers": [
+		{
+			"url": "",
+			"description": "默认环境",
+			"x-env-id": "",
+			"variables": {}
+		},
+		{
+			"url": "",
+			"description": "本地环境",
+			"x-env-id": "",
+			"variables": {}
+		}
+	]
+}
